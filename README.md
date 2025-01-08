@@ -12,12 +12,12 @@
 
 1. Add the theme to your Hugo site:
    ```bash
-   git submodule add https://bitbucket.org/your-username/techmemo-hugo.git themes/techmemo-hugo
+   git submodule add https://github.com/sakadonohito/simpleblog-hugo.git themes/simpleblog-hugo
    ```
 
 2. Update your site's `config.toml` file:
    ```toml
-   theme = "techmemo-hugo"
+   theme = "simpleblog-hugo"
    ```
 
 3. Start the Hugo server:
