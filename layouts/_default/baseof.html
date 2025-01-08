@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <!-- google analytics -->
+    {{ partial "analytics.html" . }}
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Site.Params.Description }}"/>
+
+    <!-- スマホで勝手に電話番号などマークアップされないように指定 -->
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no"/>
+
+    <!-- optional:モバイルブラウザ用 -->
+    <meta name="color-scheme" content="light" />
+    <!--
+	 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f4e6"/>
+	 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#dbdbdb"/>
+	 <meta name="color-scheme" content="light dark" />
+    -->
+
+    <!-- optional:検索エンジン向け指示 -->
+    <!-- 正規URLの提示(http/https,www有り無し,クエリありなしなど) -->
+    {{ partial "seo-meta.html" . }}
+
+    <!-- OG関連 -->
+    {{ partial "og-meta.html" . }}
+
+    <!-- RSS関連 -->
+    {{ partial "rss-link.html" . }}
+
+    <!-- Favicon関連 -->
+    {{ partial "favicon.html" . }}
+
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css" type="text/css"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="/js/main.js" defer></script>
+ </head>
+ <body>
+
+   {{ partial "header.html" . }}
+
+   {{ block "main" . }}
+   <!-- The part of the page that begins to differ between templates -->
+   {{ end }}
+
+   {{ partial "footer.html" . }}
+
+ </body>
+</html>
+

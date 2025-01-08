@@ -1,0 +1,18 @@
+name = "SimpleBlog-Hugo"
+license = "MIT"
+licenselink = "https://github.com/sakadonohito/simple-blog/blob/master/LICENSE.md"
+description = "simple blog theme"
+homepage = "https://self-study-notes.k-zak.com/"
+tags = ["", ""]
+features = ["", ""]
+min_version = 0.1
+
+[author]
+  name = "sakadonohito"
+  homepage = "https://self-study-notes.k-zak.com/"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""
