@@ -1,0 +1,18 @@
+<link rel="icon" type="image/svg+xml" href="{{ .Site.BaseURL }}/favicons/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ .Site.BaseURL }}/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}/favicons/favicon-16x16.png">
+
+<!-- optional:スマホでホーム画面に登録してアプリっぽく使われるのを想定した設定 -->
+<meta name="application-name" content="{{ .Site.Title }}"><!-- Android用 -->
+<meta name="mobile-web-app-capable" content="yes"><!-- Android用 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- optional:タブやショートカットアイコンの表示名？ -->
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}"/>
+
+<link rel="manifest" href="{{ .Site.BaseURL }}/favicons/manifest.json"><!-- いらんかも。PWAするなら必要 -->
+
+<meta name="msapplication-TileColor" content="#38B48B"><!-- Windowsの画面にショートカット置く場合 -->
+<meta name="theme-color" content="#68D0AE"><!-- アドレスバーの色? -->

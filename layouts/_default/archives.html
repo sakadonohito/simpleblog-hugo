@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+    <main class="main">
+      <div class="main__contents">
+	<div>
+	  <h2>{{.Title}}</h2>
+	</div>
+	<div class="articles__list">
+
+	  {{ $paginator := .Paginate .Site.RegularPages.ByDate.Reverse }}
+	  {{ range $paginator.Pages }}
+	  <div class="card">
+	    <div class="card__thumbnail">
+	      <a href="{{ .Permalink }}">
+		<img src="{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Title }}">
+	      </a>
+	    </div>
+
+	    <div class="card__content">
+	      <div class="card__meta">
+		<span class="card__meta__date">{{ .Date.Format "2006.01.02" }}</span>
+		{{ range .Params.categories }}
+		{{/* $.Params.categories.Last が参照できないので別のやり方 */}}
+		{{ $last := index $.Params.categories (sub (len $.Params.categories) 1) }}
+		<a href="/categories/{{ . | urlize }}" class="card__meta__category">{{ . }}</a>
+		{{ if eq . $last }}{{else}} {{ end }}
+		{{ end }}
+	      </div>
+	      <h2 class="card__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+	      <div class="card__excerpt">
+		{{ .Summary }}
+	      </div>
+	      <p><a href="{{ .RelPermalink }}">[Read More…]</a></p>
+	    </div>
+	  </div>
+	  {{ end }}
+
+	</div>
+	{{ partial "pagination.html" (dict "paginator" $paginator "context" .) }}
+      </div>
+
+      {{ partial "side-taxonomies.html" . }}
+
+    </main>
+{{ end }}

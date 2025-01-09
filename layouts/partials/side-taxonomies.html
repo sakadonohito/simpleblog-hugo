@@ -1,0 +1,29 @@
+      <aside class="main__side-nav">
+	<h3 class="sidebar-title">カテゴリー</h3>
+	<hr/>
+	<ul class="genre-list">
+	  {{ range .Site.Taxonomies.categories }}
+	  <li>
+            <a href="{{ .Page.Permalink }}" class="genre-link">{{ .Page.Title }}</a>
+            <span class="genre-count">{{ len .Pages }}</span>
+	  </li>
+	  {{ end }}
+	</ul>
+
+	<h3 class="sidebar-title">タグ(Top10)</h3>
+	<hr/>
+	<ul class="genre-list">
+	  {{ $tags := .Site.Taxonomies.tags }}
+	  {{ $sortedTags := slice }}
+	  {{ range $key, $value := $tags }}
+	  {{ $sortedTags = $sortedTags | append (dict "Name" $key "Count" (len $value.Pages) "Permalink" $value.Page.Permalink) }}
+	  {{ end }}
+	  {{ $sortedTags = sort $sortedTags "Count" "desc" }}
+	  {{ range first 10 $sortedTags }}
+	  <li>
+	    <a href="{{ .Permalink }}" class="genre-link">{{ .Name }}</a>
+            <span class="genre-count">{{ .Count }}</span>
+	  </li>
+	  {{ end }}
+	</ul>
+      </aside>

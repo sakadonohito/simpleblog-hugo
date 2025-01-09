@@ -1,0 +1,16 @@
+<!-- OG -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ .Title | default .Site.Title }}">
+<meta property="og:description" content="{{ .Params.description | default .Site.Params.defaultDescription }}">
+<meta property="og:url" content="{{ .Permalink | default .Site.BaseURL }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{/* $defaultImagePath := "/images/default-thumbnail.webp" */}}
+{{ $defaultImagePath := printf "%s%s" site.BaseURL "images/default-thumbnail.webp" }}
+<meta property="og:image" content="{{ .Params.Image | default $defaultImagePath }}">
+
+<!-- Twitter向けOGの代替(画像サイズをlargeにしたいなら必須) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ .Params.description | default .Site.Params.defaultDescription }}" />
+<meta name="twitter:image:src" content="{{ .Params.Image | default $defaultImagePath }}" />

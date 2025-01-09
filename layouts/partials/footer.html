@@ -1,0 +1,27 @@
+   <footer class="footer">
+      <div class="footer__subnav">
+	<div class="footer__subnav__tag">
+	  <h4>タグ</h4>
+	  <p>
+	    {{ $tags := .Site.Taxonomies.tags }}
+	    {{ $tagKeys := slice }}
+	    {{ range $key, $value := $tags }}
+  	  {{ $tagKeys = $tagKeys | append $key }}
+	    {{ end }}
+	    {{ $lastTag := index $tagKeys (sub (len $tagKeys) 1) }}
+
+	    {{ range $key, $value := $tags }}
+	    <a href="{{ $value.Page.Permalink }}">{{ $key }}</a>
+	    {{ if ne $key $lastTag }} {{ end }}
+	    {{ end }}
+	  </p>
+
+	</div>
+      </div>
+      <div class="copyright">
+	<span>&copy; {{ now.Format "2006" }} {{ .Site.Params.author}}. All rights reserved. Powered by Hugo. {{ .Site.Title }}</span>
+      </div>
+      <div>
+	<a href="#top" id="scroll-to-top" class="hidden">▲</a>
+      </div>
+   </footer>

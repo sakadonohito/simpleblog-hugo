@@ -1,0 +1,15 @@
+<!-- optional:検索エンジン向け指示 -->
+{{ if eq .Type "posts" }}
+{{ if .Draft }}
+<meta name="robots" content="noindex, nofollow"><!-- is draft -->
+{{else}}
+<meta name="robots" content="{{ .Params.robots | default "index, follow" }}"><!-- posts -->
+{{end}}
+{{ else if .IsHome }}
+<meta name="robots" content="index, follow"><!-- TOP -->
+{{else}}
+<meta name="robots" content="noindex, follow"><!-- archive,category,tag,page -->
+{{ end }}
+
+<!-- 正規URLの提示(http/https,www有り無し,クエリありなしなど) -->
+<link rel="canonical" href="{{ .Permalink }}">

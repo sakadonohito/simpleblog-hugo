@@ -1,0 +1,12 @@
+<!-- Graphviz mermaid.js -->
+{{ with .Site.Params.mermaid_cdn }}
+<script type="text/javascript" src="{{ . }}" defer></script>
+<script>
+/* mermaid.initialize({ startOnLoad: true });*/
+</script>
+{{ end }}
+
+<!-- LaTeX MathJax.js -->
+{{ with .Site.Params.mathjax_cdn }}
+<script id="MathJax-script" type="text/javascript" src="{{ . }}" defer></script>
+{{ end }}

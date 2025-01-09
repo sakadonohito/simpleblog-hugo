@@ -1,0 +1,48 @@
+    <header class="site-header">
+      <div class="site-header__info">
+	<div class="site-header__description">
+	  <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+	</div>
+
+	<!-- search機能は諦めた -->
+	{{/* partial "searchform.html" . */}}
+
+	<!-- SP用コンポーネント -->
+	<div class="sp-toggles__container">
+
+	  <!-- SP用見出しリンクリスト -->
+	  <!-- 記事個別画面の時しか使わない -->
+	  {{ if eq .Type "posts" }}
+	  {{ partial "mobile-toc-dropdown.html" . }}
+	  {{ end }}
+	  <!-- SP用メニュー -->
+	  {{ partial "mobile-nav.html" . }}
+
+	</div><!-- End SP用コンポーネント  -->
+
+      </div>
+      <div class="site-header__main">
+	<img class="site-header__hero" src="/{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Page.Title }}">
+	<div class="hero-content">
+	  <h1 class="site-header__title">{{ .Page.Title }}</h1>
+	  {{ if eq .Type "posts" }}
+	  <div class="">
+	    <span class="">{{ .Date.Format "2006.01.02" }}</span>
+	    {{ range $index, $category := .Params.categories }}
+	    <a href="/categories/{{ $category | urlize }}">{{ $category }}</a>
+	    {{ if not (eq (sub (len $.Params.categories) 1) $index) }}ほげ {{ end }}
+	    {{ end }}
+	  </div>
+	  {{ end }}
+	</div>
+	<nav class="site-header__nav">
+	  <ul>
+	    <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+	    <li><a href="/archives/">Archives</a></li>
+	    <li><a href="/categories/">Categoris</a></li>
+	    <li><a href="/tags/">Tags</a></li>
+	    <li><a href="/about/">About</a></li>
+	  </ul>
+	</nav>
+      </div>
+    </header>

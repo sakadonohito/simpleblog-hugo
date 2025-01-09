@@ -1,0 +1,21 @@
+{{ define "main" }}
+    <main class="main">
+      <article class="main__contents">
+	<div>
+	  <h1>{{.Title}}</h1>
+	</div>
+	{{ .Content }}
+      </article>
+      {{ if eq .Type "page" }}
+      {{ partial "side-taxonomies.html" . }}
+      {{ else }}
+      <nav class="main__side-nav">
+	<section class="sticky-toc">
+	  <h3>目次</h3>
+	  <hr/>
+	  {{ .TableOfContents }}
+	</section>
+      </nav>
+      {{ end }}
+    </main>
+    {{ end }}
