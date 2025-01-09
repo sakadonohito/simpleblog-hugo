@@ -2,17 +2,14 @@
 
     <main class="main">
       <div class="main__contents">
-	<div>
-	  <h2>{{.Title}}</h2>
-	</div>
 	<div class="articles__list">
 
-	  {{ $paginator := .Paginate .Site.RegularPages.ByDate.Reverse }}
+	  {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "posts") }}
 	  {{ range $paginator.Pages }}
 	  <div class="card">
 	    <div class="card__thumbnail">
 	      <a href="{{ .Permalink }}">
-		<img src="{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Title }}">
+		<img src="/{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Title }}">
 	      </a>
 	    </div>
 

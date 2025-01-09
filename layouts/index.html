@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $top10 := first 10 .Site.RegularPages.ByDate.Reverse }}
+{{ $top10 := first 10 (where .Site.RegularPages.ByDate.Reverse "Type" "posts") }}
 
     <main class="main">
       <div class="main__contents">

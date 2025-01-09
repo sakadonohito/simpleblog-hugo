@@ -13,7 +13,7 @@
 	  <div class="card">
 	    <div class="card__thumbnail">
 	      <a href="{{ .Permalink }}">
-		<img src="{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Title }}">
+		<img src="/{{ .Params.thumbnail | default "/images/default-thumbnail.webp" }}" alt="{{ .Title }}">
 	      </a>
 	    </div>
 
