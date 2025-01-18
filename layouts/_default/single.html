@@ -1,11 +1,6 @@
 {{ define "main" }}
     <main class="main">
       <article class="main__contents">
-	<!-- 
-	     <div>
-	     <h1>{{.Title}}</h1>
-	     </div>
-	-->
 	{{ .Content }}
       </article>
       {{ if eq .Type "page" }}
