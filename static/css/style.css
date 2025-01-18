@@ -6,7 +6,8 @@
     --accent-color: #337ab7;
     --lightaccent-color-alpha: rgba(134, 182, 227, 0.7);
     --h2-bg-color: #337ab7;
-    --h3-bg-color: #337ab7;
+    --h3-bg-color: rgba(134, 182, 227, 0.5);
+    --h3-left-color: #337ab7;
     --black-color: #444444;
     --black-color-alpha: rgba(68, 68, 68, 0.8);
     --white-color: #FFFFFF;
@@ -360,7 +361,7 @@ end not use simpleblog-hugo */
     width: 100%;
     margin: 0.5rem 0;
     padding-left: 0.5rem;
-    background-color: var(--primary-color);
+    background-color: var(--h2-bg-color);
     color: var(--white-color);
 }
 .main > article.main__contents h3 {
@@ -369,8 +370,8 @@ end not use simpleblog-hugo */
     margin: 0.5rem 0;
     padding-left: 0.5rem;
     padding-inline-start: 0.5rem;
-    border-inline-start: 4px solid var(--primary-color);
-    background-color: var(--body-color);
+    border-inline-start: 4px solid var(--h3-left-color);
+    background-color: var(--h3-bg-color);
     color: var(--black-color);
 }
 .main > article.main__contents ul,

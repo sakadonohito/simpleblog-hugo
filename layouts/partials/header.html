@@ -1,11 +1,11 @@
 {{ $heroImage := "" }}
 {{ if eq .Type "posts" }}
-  {{ $heroImage = add "/" .Params.thumbnail }}
+  {{/* $heroImage = add "/" .Params.thumbnail */}}
+  {{ $heroImage = printf "/%s" .Params.thumbnail }}
 {{/* else if eq .Type "article" */}}
 {{ else }}
-    {{ $heroImage = "/images/default-thumbnail.webp" }}
+  {{ $heroImage = "/images/default-thumbnail.webp" }}
 {{ end }}
-    
 
     <div class="sp-header__bg"></div>
     <div class="site-title">
